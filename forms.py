@@ -94,7 +94,7 @@ class Customer1(FlaskForm):
     customer_tel1 = StringField("Müşteri Telefonu -1")
     customer_tel2 = StringField("Müşteri Telefonu -2") 
     customer_tel3 = StringField("Müşteri Telefonu -3")
-    customer_website = StringField("Customer Website")
+    customer_website = StringField("Müşteri Web Sitesi")
     customer_type = SelectField(label='Müşteri Türü', choices=[("Actual/Aktif", "Actual/Aktif"), ("Prospect/Muhtemel", "Prospect/Muhtemel"), ("Suspect/Potansiyel", "Suspect/Potansiyel")])
     customer_notes = TextAreaField("Müşteri Hakkında Notlar")
     local_international  = SelectField(label='Yerel - Uluslararası Müşteri', choices=[("Yerel", "Yerel"), ("Uluslararası", "Uluslararası"), 
