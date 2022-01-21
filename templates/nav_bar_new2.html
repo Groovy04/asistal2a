@@ -1,0 +1,76 @@
+
+<style>
+    .navbar {
+      overflow: visible;
+      background-color: #333;
+      position: fixed; /* Set the navbar to fixed position */
+      top: 0; /* Position the navbar at the top of the page */
+      width: 100%; /* Full width */
+    }
+    </style>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ url_for('index') }}" font><p class="text-danger" p style="font-size:15px;"><b>ASSIST</b> SİSTEMİ</p></a>  
+    
+    {% if current_user.is_authenticated %}
+        <p style="color:green;"><b>Assist Sistemine Giriş Yaptınız.</b>
+              
+        {% else %}
+          <p style="color:red;"><b>Assist Sistemi'nde Değilsiniz.</b></p>
+        
+    
+        {% endif %}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+
+
+        <li class="nav-item">
+          <a class="nav-link" href=" {{ url_for('index') }} ">Ana Sayfa</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Satış Plan ve Gerçekleşme Sayfaları
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="{{ url_for('sales_planned_entry') }}">Planl. Satış Metrik. Giriş</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('sales_actual_entry') }}">Gerçek. Satış Metrik. Giriş</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{ url_for('performance_graph_2021') }}">2021 Yılı Satış Grafikleri</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('performance_graph_2022') }}">2022 Yılı Satış Grafikleri</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Müşteri Bilgileri
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="{{ url_for('customer_form1') }}">Müşteri Giriş Ekranı</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('customer_search') }}">Müşteri Arama</a></li>
+              
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('login') }}"><p style="color:green;">Sisteme Giriş</p></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}"><p style="color:orangered;">Sistemden Çıkış</p></a>
+          </li>
+
+
+      </ul>
+      
+    </div>
+  </div>
+</nav>

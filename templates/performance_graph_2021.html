@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+ <head>
+  <title>Figure examples</title>
+  <link rel="stylesheet" href="https://cdn.bokeh.org/bokeh/release/bokeh-0.10.0.min.css" type="text/css" />
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.1.min.js"></script>
+  {{ script|safe }}
+ </head>
+
+<style>
+    .error {
+    color: red;
+    border: 2px solid red;
+}
+    .success {
+    color: limegreen;
+    border: 2px solid limegreen;
+}
+
+    .bk-root {
+      position: relative;
+
+    }
+    .bokeh {
+      position: relative;
+      left: 0px;
+      top: 0px;
+      z-index: -1;
+
+    }
+
+</style>
+
+{% extends "base.html"%}
+
+{%block content%}
+
+</br></br></br></br>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <div class="{{ category }}">{{ message }}</div>
+  {% endfor %}
+{% endwith %}
+</br>
+<p><h3> Asistal Assist Sistemi - Planlanan ve Gerçekleşen Satış Performans Grafikleri.</h3></p>
+
+</br>
+<p style="color:orangered;"><b>Sütunlar gerçek, noktalar planlanan değerleri göstermektedir.</b></p>
+
+<p>Aşağıdaki grafik 2021 yılı verilerine aittir. <text style="color:orangered;">
+
+
+<div class='bokeh'>
+    {{div|safe}}
+</div>
+
+</br>
+<p><b>Asistal - Assist Sistemi</b> / Versiyon - Ocak 2022-01</p>
+
+{%endblock%} 
